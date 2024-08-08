@@ -12,13 +12,10 @@ module.exports = async (req, res) => {
     await fetch(url, {
       method: 'Get',
     }).then(response => {
-      return response.json();
-
-    }).then(data => {
-      res.json({
-        data
-      });
+      return response
     })
-  } catch (error) {}
+  } catch (error) {
+    return error
+  }
 }
 
