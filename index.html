@@ -3,7 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <meta property="og:title" content="默认标题">
+  <script>
+  // 1. 从 URL 中获取 name 参数
+  const urlParams = new URLSearchParams(window.location.search);
+  const name = urlParams.get("name");
+
+  // 2. 找到 og:title 元标签
+  const ogTitleMeta = document.querySelector('meta[property="og:title"]');
+
+  // 3. 如果 name 存在，就更新 og:title 的 content
+  if (name && ogTitleMeta) {
+    ogTitleMeta.setAttribute("content", name);
+  }
+</script>
   <script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/axios/0.26.0/axios.js"></script>
 </head>
 <body>
